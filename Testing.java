@@ -38,4 +38,40 @@ class sjf
 		return true;
 		
 	}
+	static void sort() 
+	{
+		int k;
+		String p1;
+		p2=Arrays.copyOf(p,p.length);
+		for(int j=0;j<n-1;j++)
+		{
+			if(at[j]==at[j+1]&&bt[j]>=bt[j+1])
+			{
+				k=at[j];
+				at[j]=at[j+1];
+				at[j+1]=k;
+				k=bt[j];
+				bt[j]=bt[j+1];
+				bt[j+1]=k;
+				p1=p[j];
+				p[j]=p[j+1];
+				p[j+1]=p1;
+			}
+			for(int q=j+1;q<n-1;q++)
+			{
+				if(at[q]<=bt[j]&&at[q+1]<=bt[j]&&bt[q]>bt[q+1])
+				{
+					k=at[q];
+					at[q]=at[q+1];
+					at[q+1]=k;
+					k=bt[q];
+					bt[q]=bt[q+1];
+					bt[q+1]=k;
+					p1=p[q];
+					p[q]=p[q+1];
+					p[q+1]=p1;
+				}
+			}
+		}
+	}
 }
